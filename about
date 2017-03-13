@@ -1,0 +1,17 @@
+假设当前状态为app.contact.detail.setting, 当我们跳转到 app.contact.message. 完整的动作是
+leave app.contact.detail.setting
+leave app.contact.detail
+update app.contact //update
+update app
+enter app.contact.message
+
+现在扩展在navigation中提到的例子，当你从 app.contact.detail.setting 跳转到
+app.contact.message. 现在完整的流程是
+canleave app.contact.detail.setting
+canleave app.contact.detail
+canenter app.contact.message
+leave app.contact.detail.setting
+leave app.contact.detail
+update app.contact //update
+update app
+enter app.contact.message
