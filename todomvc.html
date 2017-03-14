@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>todomvc</title>
+</head>
+<body>
+<!--引入todomvc.css-->
+<link rel="stylesheet" href="https://rawgit.com/tastejs/todomvc-app-css/master/index.css">
+
+<div id="todoapp">
+    <div>
+        <h1>TODOMVC</h1>
+        <input id="new-todo" placeholder="What needs to be done?">
+    </div>
+    <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list">
+            <li class="completed">
+                <div class="view">
+                    <input class="toggle" type="checkbox" checked>
+                    <label>sleep</label>
+                    <button class="destroy"></button>
+                </div>
+                <input id="edit" class="edit">
+            </li>
+            <li class="">
+                <div class="view">
+                    <input class="toggle" type="checkbox">
+                    <label>work</label>
+                    <button class="destroy"></button>
+                </div>
+                <input id="edit" class="edit"></li>
+        </ul>
+    </section>
+    <footer id="footer">
+    <span id="todo-count"> <strong>1</strong>
+      item left
+    </span>
+        <ul id="filters">
+            <li> <a class="selected">All</a> </li>
+            <li> <a class="">Active</a> </li>
+            <li> <a class="">Completed</a> </li>
+        </ul>
+        <button id="clear-completed">Clear completed (1)</button>
+    </footer>
+</div>
+<footer id="info">
+    <p>Double-click to edit a todo</p>
+    <p>Created by @leeluolee</p>
+    <p>
+        Part of
+        <a href="http://todomvc.com">TodoMVC</a>
+    </p>
+</footer>
+<!-- 引入regularjs -->
+<script src="https://rawgit.com/regularjs/regular/master/dist/regular.js"></script>
+</body>
+</html>

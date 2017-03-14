@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>regular.ToDo.Mvc</title>
+</head>
+<body>
+        <div id="todoapp"></div>
+<script type="template/regular" id='todomvc'>
+    <div>
+        <h1>TODOMVC</h1>
+        <input id="new-todo" placeholder="What needs to be done?">
+    </div>
+    <section id="main">
+        <input id="toggle-all" type="checkbox">
+        <label for="toggle-all">Mark all as complete</label>
+        <ul id="todo-list">
+            {#list todos as todo}
+            <li  r-class={ {'completed': todo.completed, 'editing': todo.editing} }>
+            <div class="view">
+                <input class="toggle" type="checkbox" r-model={ todo.completed }>
+                <label on-dblclick={todo.editing = true}>{ todo.description }</label>
+                <button on-click={ todos.splice(todo_index,1) } class="destroy"></button>
+            </div>
+            <input id="edit" class="edit" on-enter={ todo.editing = false } r-model={todo.description} autofocus>
+            </li>
+            {/list}
+        </ul>
+    </section>
+    <footer id="footer">
+    <span id="todo-count"> <strong>1</strong>
+      item left
+    </span>
+        <ul id="filters">
+            <li> <a class="selected">All</a> </li>
+            <li> <a class="">Active</a> </li>
+            <li> <a class="">Completed</a> </li>
+        </ul>
+        <button id="clear-completed">Clear completed (1)</button>
+    </footer>
+
+</script>
+<script src="regular.js"></script>
+<script>
+var TodoMVC = Regular.extend({
+    template: "#todomvc"
+});
+var todos = [
+    {completed: true, description: "sleep" },
+    {completed: false, description: "work" }
+]
+var app = new TodoMVC({
+    data: {todos: todos}
+}).$inject('#todoapp');
+</script>
+
+</body>
+</html>

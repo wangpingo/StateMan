@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    {#list list as item}
+    <li>
+        <label><input type="checkbox" r-model={item.selected}><b>{item.text}</b></label>
+    </li>
+    {#else}
+    <li>Sorry! no matched items</li>
+    {/list}
+</ul>
+
+<label><input type="checkbox" r-model={selectAll}><b>Select All</b></label>
+<script src="https://rawgit.com/regularjs/regular/master/dist/regular.js"></script>
+<script>
+    var ListComponent = Regular.extend({
+        computed: {
+
+            selectAll: {
+                // only every item is selected, we return true
+                get: function(data){
+                    if(!data.list) return false;
+                    return data.list.filter(
+
+                            function(item){ return !!item.selected}
+
+                        ).length===data.list.length;
+                },
+                set: function(value, data){
+                    if(!data.list) return
+                    // set every item.selected with passed value
+                    data.list.forEach(function(item){
+                        item.selected = value;
+                    })
+                }
+            }
+        }
+
+    })
+</script>
+</body>
+</html>

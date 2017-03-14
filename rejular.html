@@ -1,0 +1,40 @@
+
+<div id="app">
+
+</div>
+
+<script id="hello" type="text/regular" name="hello">
+     {#if username}
+      hello {username}!
+
+    {#else}
+      hellow guest!
+    {/if}
+  <input  r-model={test} />
+</script>
+
+<!-- 引入regular.js -->
+<script src="https://rawgit.com/regularjs/regular/master/dist/regular.js"></script>
+
+
+<script>
+    //利用Regular构建你的app吧 (模版+数据)结合r-model操作
+    var HelloRegular = Regular.extend({
+        template: '#hello',
+        data: {
+            test: "test1"
+        }
+    });
+
+    // initialize component then $inject to #app's  bottom
+    //创建一个组件，传入一个数据。最后把数据传给
+    var component = new HelloRegular({
+        data: {username: "leeluolee"}
+    });
+    component.$inject('#app');
+</script>
+
+
+
+
+
